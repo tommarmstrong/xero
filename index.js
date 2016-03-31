@@ -42,7 +42,6 @@ Xero.prototype.call = function(method, path, body, callback) {
             path += param + "=" + body[param];
             first=false;
         }
-        console.log(path);
     }
     var process = function(err, xml, res) {
         if (err) {
