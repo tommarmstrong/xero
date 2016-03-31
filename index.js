@@ -34,6 +34,16 @@ Xero.prototype.call = function(method, path, body, callback) {
             content_type = 'application/xml';
         }
     }
+    else if (method && method == 'GET' && body) {
+        path += "?";
+        var first = true;
+        for (var param in body) {
+            if (!first) path += "&";
+            path += param + "=" + body[param];
+            first=false;
+        }
+        console.log(path);
+    }
     var process = function(err, xml, res) {
         if (err) {
             return callback(err);
